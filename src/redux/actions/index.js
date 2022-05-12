@@ -6,22 +6,15 @@ export const getMovies = () => {
   };
 };
 
-export const quitarFav = (id) => ({
-  type: 'QUITAR_FAV',
-  payload: id,
-});
-
-export const addFav = (pelicula) => ({
-  type: 'AÑADIR_FAV',
-  payload: pelicula,
-});
-
-export const detallePelicula = (imdbID) => {
-  return function (dispatch) {
-    return fetch(`http://www.omdbapi.com/?apikey=${apiKey}&i=${imdbID}`)
-      .then((response) => response.json())
-      .then((json) => {
-        dispatch({ type: 'DETALLE_PELICULA', payload: json });
-      });
+export const getRegionCountries = (region) => {
+  return async function (dispatch) {
+    const response = await fetch(`https://restcountries.com/v3.1/region/${region}`);
+      const data = await response.json();
+      dispatch({ type: 'COUNTRIES_REGION', payload: data });
   };
 };
+
+export const getRegion = (region) => ({
+  type: 'GET_REGION',
+  payload: region,
+});

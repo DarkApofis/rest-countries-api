@@ -1,8 +1,12 @@
 import { Card, CardImage, CardInfo, CardName, CardExtra } from "./style"
+import { useHistory } from "react-router-dom"
 
-export default function Country({flag, name, population, region, capital}){
+export default function Country({flag, name, population, region, capital, cca2}){
+
+    const history = useHistory()
+
     return (
-        <Card className="CountryCard">
+        <Card className="CountryCard" onClick={() => history.push(`/details/${cca2}`)}>
             <CardImage src={flag}/>
             <CardInfo>
                 <CardName>{name}</CardName>

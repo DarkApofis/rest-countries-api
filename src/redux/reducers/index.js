@@ -1,6 +1,7 @@
 const initialState = {
     countries: [],
-    countryDetail: {}
+    countryDetail: {},
+    region: "all"
 }
 
 const rootReducer = (state = initialState, action) => {
@@ -9,6 +10,10 @@ const rootReducer = (state = initialState, action) => {
             return {...state, countries: action.payload}
         case "GET_MOVIE_DETAILS":
             return state.countryDetail
+        case "COUNTRIES_REGION":
+            return {...state, countries: action.payload}
+        case "GET_REGION":
+            return {...state, region: action.payload}
         default:
             return state
     }
