@@ -30,7 +30,7 @@ export default function CountryDetails() {
     useEffect(() => {
         dispatch(getCountryDetail(id))
         setIsLoading(false)
-    },[])
+    },[dispatch, id])
 
     return (
         <>
@@ -43,20 +43,20 @@ export default function CountryDetails() {
                 <Button onClick={() => history.goBack()}>⬅ Back</Button>
                 <Main>
                     <ImageContainer>
-                        <Image src={country.flags.png}/>
+                        <Image src={country.flags?.png}/>
                     </ImageContainer>
                     <InfoContainer>
-                        <h2>{country.name.common}</h2>
+                        <h2>{country.name?.common}</h2>
                         <Info>
                             <ListInfo>
-                                <ListItem><Span>Native Name:</Span> {country.name.common}</ListItem>
-                                <ListItem><Span>Population:</Span> {country.population}</ListItem>
-                                <ListItem><Span>Region:</Span> {country.region}</ListItem>
-                                <ListItem><Span>Sub Region:</Span> {country.subregion}</ListItem>
-                                <ListItem><Span>Capital:</Span> {country.capital}</ListItem>
+                                <ListItem><Span>Native Name:</Span> {country.name?.common}</ListItem>
+                                <ListItem><Span>Population:</Span> {new Intl.NumberFormat().format(country?.population) }</ListItem>
+                                <ListItem><Span>Region:</Span> {country?.region}</ListItem>
+                                <ListItem><Span>Sub Region:</Span> {country?.subregion}</ListItem>
+                                <ListItem><Span>Capital:</Span> {country?.capital}</ListItem>
                             </ListInfo>
                             <ListInfo>
-                                <ListItem><Span>Top Level Domain:</Span> {country.tld}</ListItem>
+                                <ListItem><Span>Top Level Domain:</Span> {country?.tld}</ListItem>
                                 <ListItem><Span>Currencies:</Span></ListItem>
                                 <ListItem><Span>Languages:</Span></ListItem>
                             </ListInfo>
