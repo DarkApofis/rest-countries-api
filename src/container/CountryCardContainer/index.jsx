@@ -1,7 +1,7 @@
 import { useEffect } from "react"
 import Country from "../../components/CountryCard/index"
 import { useDispatch, useSelector } from "react-redux"
-import { getMovies, getRegionCountries } from "../../redux/actions"
+import { getCountries, getRegionCountries } from "../../redux/actions"
 import { Container } from "./style"
 
 export default function CountriesContainer(){
@@ -15,7 +15,7 @@ export default function CountriesContainer(){
         if(region !== "all"){
             dispatch(getRegionCountries(region))
         } else{
-            dispatch(getMovies())
+            dispatch(getCountries())
         }
     }, [region])
 
