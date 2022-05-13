@@ -28,6 +28,10 @@ export const getCountryDetail = (code) => {
   };
 };
 
+export const cleanDetail = () => ({
+  type: 'CLEAN_DETAIL',
+})
+
 export const getRegion = (region) => ({
   type: 'GET_REGION',
   payload: region,

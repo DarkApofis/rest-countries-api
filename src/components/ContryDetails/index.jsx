@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import { useParams, useHistory } from "react-router-dom"
 import { useDispatch, useSelector } from "react-redux"
-import { getCountryDetail } from "../../redux/actions"
+import { getCountryDetail, cleanDetail } from "../../redux/actions"
 
 import { 
     Section, 
@@ -26,6 +26,11 @@ export default function CountryDetails() {
     const dispatch = useDispatch()
     
     const country = useSelector(state => state.countryDetail)
+
+    const goBackAndCleanDetail = () => {
+        history.goBack()
+        dispatch(cleanDetail())
+    }
     
     useEffect(() => {
         dispatch(getCountryDetail(id))
@@ -40,7 +45,8 @@ export default function CountryDetails() {
                 </h1>
             ):(
             <Section>
-                <Button onClick={() => history.goBack()}>⬅ Back</Button>
+                <Button 
+                    onClick={() => goBackAndCleanDetail()}>⬅ Back</Button>
                 <Main>
                     <ImageContainer>
                         <Image src={country.flags?.png}/>

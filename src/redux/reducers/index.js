@@ -14,6 +14,8 @@ const rootReducer = (state = initialState, action) => {
             return {...state, countries: action.payload}
         case 'GET_REGION':
             return {...state, region: action.payload}
+        case 'CLEAN_DETAIL':
+            return {...state, countryDetail: {}}
         default:
             return state
     }
