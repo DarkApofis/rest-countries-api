@@ -16,6 +16,13 @@ const rootReducer = (state = initialState, action) => {
             return {...state, region: action.payload}
         case 'CLEAN_DETAIL':
             return {...state, countryDetail: {}}
+        case 'GET_COUNTRY_BY_NAME':
+            if(state.region !== "all") {
+                const countriesData = action.payload.filter(country => country.region.toLowerCase() === state.region)
+                return {...state, countries: countriesData}
+            } else{
+                return {...state, countries: action.payload}
+            }
         default:
             return state
     }

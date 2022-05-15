@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import { Form, Input, Select} from "./styles"
-import { getRegionCountries, getCountries, getRegion } from "../../redux/actions"
+import { getRegionCountries, getCountries, getRegion, getCountryByName } from "../../redux/actions"
 import { useDispatch, useSelector } from "react-redux"
 export default function FilterCountry(){
 
@@ -9,6 +9,12 @@ export default function FilterCountry(){
     const dispatch = useDispatch()
 
     const region = useSelector(state => state.region)
+
+    useEffect(() => {
+        if(countryName.length >= 1){
+            dispatch(getCountryByName(countryName))
+        }
+    }, [countryName])
 
     useEffect(() => {
         if(region !== "all"){
@@ -24,7 +30,11 @@ export default function FilterCountry(){
 
     return (
         <Form>
-            <Input placeholder='Search for a country...'/>
+            <Input 
+                placeholder='Search for a country...' 
+                value={countryName} 
+                onChange={e => setCountryName(e.target.value)}
+            />
             <Select
                 value={region}
                 onChange={e => handleRegion(e)}

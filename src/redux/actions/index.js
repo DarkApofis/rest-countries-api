@@ -21,12 +21,22 @@ export const getRegionCountries = (region) => {
 export const getCountryDetail = (code) => {
   return async function (dispatch) {
     const response = await fetch(`https://restcountries.com/v3.1/alpha/${code}`);
-      const data = await response.json();
-      if(data !== undefined) {
-        dispatch({ type: 'GET_COUNTRY_DETAIL', payload: data[0] });
-      }
+    const data = await response.json();
+    if(data !== undefined) {
+      dispatch({ type: 'GET_COUNTRY_DETAIL', payload: data[0] });
+    }
   };
 };
+
+export const getCountryByName = (country) => {
+  return async function (dispatch) {
+    const response = await fetch(`https://restcountries.com/v3.1/name/${country}`)
+    const data = await response.json()
+    if(data !== undefined) {
+      dispatch({type: "GET_COUNTRY_BY_NAME", payload: data})
+    }
+  }
+}
 
 export const cleanDetail = () => ({
   type: 'CLEAN_DETAIL',
