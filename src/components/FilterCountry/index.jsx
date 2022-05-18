@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import { Form, Input, Select} from "./styles"
 import { getRegionCountries, getCountries, getRegion, getCountryByName } from "../../redux/actions"
 import { useDispatch, useSelector } from "react-redux"
+
 export default function FilterCountry(){
 
     const [countryName, setCountryName] = useState("")
@@ -13,6 +14,8 @@ export default function FilterCountry(){
     useEffect(() => {
         if(countryName.length >= 1){
             dispatch(getCountryByName(countryName))
+        }else{
+            dispatch(getCountries())
         }
     }, [countryName])
 

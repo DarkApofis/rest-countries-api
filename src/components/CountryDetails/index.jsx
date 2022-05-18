@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import { useParams, useHistory } from "react-router-dom"
 import { useDispatch, useSelector } from "react-redux"
 import { getCountryDetail, cleanDetail } from "../../redux/actions"
+import {CgArrowLeft} from "react-icons/cg"
 
 import { 
     Section, 
@@ -46,7 +47,10 @@ export default function CountryDetails() {
             ):(
             <Section>
                 <Button 
-                    onClick={() => goBackAndCleanDetail()}>⬅ Back</Button>
+                    onClick={() => goBackAndCleanDetail()}
+                > 
+                    <CgArrowLeft size="1.4rem" /> Back
+                </Button>
                 <Main>
                     <ImageContainer>
                         <Image src={country.flags?.png}/>

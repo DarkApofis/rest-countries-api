@@ -14,8 +14,18 @@ export const Section = styled.section`
 `
 
 export const Button = styled.button`
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
     padding: 0.3125rem;
     width: 100px;
+    height: 35px;
+    font-weight: 600;
+    border-radius: 5px;
+    border: none;
+    box-shadow: 0 0 5px hsl(0, 0%, 52%);
+    background-color: hsl(0, 0%, 100%);
+    cursor: pointer;
 `
 
 export const Main = styled.main`

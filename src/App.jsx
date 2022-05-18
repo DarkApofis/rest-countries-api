@@ -1,7 +1,6 @@
 import Header from "./components/Header/index"
-import CountriesContainer from "./container/CountryCardContainer"
-import FilterCountry from "./components/FilterCountry"
-import CountryDetails from "./components/ContryDetails"
+import Container from "./container/Container"
+import CountryDetails from "./components/CountryDetails"
 import { GlobalStyle } from "./styles/GlobalStyles"
 import { Switch, Route } from "react-router-dom"
 
@@ -13,8 +12,7 @@ function App() {
       <Header/>
       <Switch>
         <Route path="/" exact>
-          <FilterCountry/>
-          <CountriesContainer/>
+          <Container/>
         </Route>
         <Route path="/details/:id" component={CountryDetails}/>
       </Switch>

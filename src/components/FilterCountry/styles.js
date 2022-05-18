@@ -3,13 +3,10 @@ import styled from "styled-components"
 export const Form = styled.form`
     display: flex;
     flex-direction: column;
-    padding: 1.563rem;
+    margin-bottom: 2rem;
     @media (min-width: 780px) {
         flex-direction: row;
         justify-content: space-between;
-    }
-    @media (min-width: 1440px){
-        padding: 3rem;
     }
 `
 
