@@ -3,6 +3,8 @@ import styled from "styled-components"
 export const Card = styled.div`
     border-radius: 5px;
     overflow: hidden;
+    color: ${props => props.theme.text};
+    background-color: ${props => props.theme.backgroundElement};
     box-shadow: 0px 0px 1.5px 0px hsl(0, 0%, 52%);
     cursor: pointer;
 `

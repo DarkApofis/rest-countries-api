@@ -53,7 +53,7 @@ export default function CountryDetails() {
                 </Button>
                 <Main>
                     <ImageContainer>
-                        <Image src={country.flags?.png}/>
+                        <Image src={country.flags?.png} alt={`Flag of ${country.name?.common}`}/>
                     </ImageContainer>
                     <InfoContainer>
                         <h2>{country.name?.common}</h2>

@@ -16,9 +16,16 @@ export const Input = styled.input`
     width: 100%;
     max-width: 500px;
     height: 50px;
-    border: 1px solid hsl(0, 0%, 52%);
+    color: ${props => props.theme.text};
+    background-color: ${props => props.theme.backgroundElement};
+    border: none;
+    box-shadow: 0px 0px 1.5px 0px hsl(0, 0%, 52%);
+    outline: none;
     border-radius: 5px;
     font-size: 15px;
+    &::placeholder {
+        color: ${props => props.theme.text};
+    }
 `
 
 export const Select = styled.select`
@@ -26,6 +33,9 @@ export const Select = styled.select`
     width: 50%;
     max-width: 160px;
     height: 50px;
-    border: 1px solid hsl(0, 0%, 52%);
+    color: ${props => props.theme.text};
+    background-color: ${props => props.theme.backgroundElement};
+    outline: none;
+    box-shadow: 0px 0px 1.5px 0px hsl(0, 0%, 52%);
     border-radius: 5px;
 `

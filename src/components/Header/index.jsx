@@ -1,10 +1,15 @@
+import { Title, HeaderC, Button } from "./style.js";
+import {IoIosMoon} from "react-icons/io";
 
-import { Title, HeaderC } from "./style.js"
+export default function Header({themeToggler}){
 
-export default function Header(){
     return (
         <HeaderC>
             <Title>Where in the world?</Title>
+            <Button onClick={themeToggler}>
+                <IoIosMoon/>
+                Dark Mode
+            </Button>
         </HeaderC>
     )
 }

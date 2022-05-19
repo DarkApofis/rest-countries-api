@@ -6,11 +6,16 @@ export const GlobalStyle = createGlobalStyle`
         padding: 0;
         box-sizing: border-box
     }
+    body{
+        font-family: 'Nunito Sans', sans-serif;
+    }
     .App{
         height: 100vh;
         width: 100%;
         min-width: 375px;
-        margin: 0 auto
+        background-color: ${props => props.theme.background};
+        margin: 0 auto;
+        overflow: scroll;
     }
     span{
         font-weight: 400

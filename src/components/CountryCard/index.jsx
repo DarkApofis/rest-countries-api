@@ -7,7 +7,7 @@ export default function Country({flag, name, population, region, capital, cca2})
 
     return (
         <Card className="CountryCard" onClick={() => history.push(`/details/${cca2}`)}>
-            <CardImage src={flag}/>
+            <CardImage src={flag} alt={`Flag of ${name}`}/>
             <CardInfo>
                 <CardName>{name}</CardName>
                 <CardExtra>Population: <span>{population}</span></CardExtra>

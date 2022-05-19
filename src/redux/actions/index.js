@@ -34,6 +34,8 @@ export const getCountryByName = (country) => {
       if(response.status === 200){
         const data = await response.json()
         dispatch({type: "GET_COUNTRY_BY_NAME", payload: data})
+      } else{
+        dispatch({type: 'GET_COUNTRY_BY_NAME', payload: []})
       }
   }
 }
