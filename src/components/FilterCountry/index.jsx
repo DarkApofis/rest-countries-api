@@ -12,7 +12,11 @@ export default function FilterCountry(){
     const region = useSelector(state => state.region)
 
     useEffect(() => {
-        dispatch(getCountryByName(countryName))
+        if(countryName < 1){
+            dispatch(getCountries())
+        } else{
+            dispatch(getCountryByName(countryName))
+        }
     }, [countryName])
 
     useEffect(() => {
