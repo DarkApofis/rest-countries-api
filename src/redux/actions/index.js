@@ -30,11 +30,11 @@ export const getCountryDetail = (code) => {
 
 export const getCountryByName = (country) => {
   return async function (dispatch) {
-    const response = await fetch(`https://restcountries.com/v3.1/name/${country}`)
-    const data = await response.json()
-    if(data !== undefined) {
-      dispatch({type: "GET_COUNTRY_BY_NAME", payload: data})
-    }
+      const response = await fetch(`https://restcountries.com/v3.1/name/${country}`)
+      if(response.status === 200){
+        const data = await response.json()
+        dispatch({type: "GET_COUNTRY_BY_NAME", payload: data})
+      }
   }
 }
 
